@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DatabaseExt" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DatabaseExt.mdf;Integrated Security=True" SettingsObjectName="ExternalLayer.Properties.Settings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DLUZNIK" Member="DLUZNIKs">
+    <Type Name="DLUZNIK">
+      <Column Name="dluznikid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nazev" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="ulozeno" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="rc" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="ico" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="datum_narozeni" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="adresa_xml" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="id_osoby" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="zmeneno_isir" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="zruseno" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="id_osoby_puvodce" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="matchstatusid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="matchdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pripadid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="delete_approved_at" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="first_name" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="last_name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="legal_type" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STAVPRIPADU" Member="STAVPRIPADUs">
+    <Type Name="STAVPRIPADU">
+      <Column Name="stavid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="stav_nazev" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="stav_popis" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="popisnawebu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="STAVPRIPADU_PRIPAD" Member="PRIPADs" ThisKey="stavid" OtherKey="stavid" Type="PRIPAD" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EVENT" Member="EVENTs">
+    <Type Name="EVENT">
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsirId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CaseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseSign" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PublishedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="LoadedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SavedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LegalCaseIniatedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ResolvedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Resolver" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="EventTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventTypDescription" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderOfSection" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUser" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CanceledAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RiskCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EventStateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VerifiedBy" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="VerifiedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KBI_ID" Member="KBI_IDs">
+    <Type Name="KBI_ID">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dluznikid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kbi_id" Member="kbi_id1" Type="System.String" DbType="NVarChar(17) NOT NULL" CanBeNull="false" />
+      <Column Name="zadal" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="zadano" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="legal_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="general_name" Type="System.String" DbType="NVarChar(240)" CanBeNull="true" />
+      <Column Name="birth_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="birth_no" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="identification_no" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="deleted_at" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRIPAD" Member="PRIPADs">
+    <Type Name="PRIPAD">
+      <Column Name="pripadid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="spis_znacka" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pripad_start" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pripad_konec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="stavid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ulozeno" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zmeneno_isir" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zruseno" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="STAVPRIPADU_PRIPAD" Member="STAVPRIPADU" ThisKey="stavid" OtherKey="stavid" Type="STAVPRIPADU" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

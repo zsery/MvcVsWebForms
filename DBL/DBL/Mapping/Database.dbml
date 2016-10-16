@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DatabaseBL" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Tfs\MvcVsWebForms\DBL\Database\DatabaseBL.mdf;Integrated Security=True" SettingsObjectName="DBL.Properties.Settings" SettingsPropertyName="DatabaseBLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.C_EVENT_STATE" Member="C_EVENT_STATEs">
+    <Type Name="C_EVENT_STATE">
+      <Column Name="event_state_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="code_token" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EVENT" Member="EVENTs">
+    <Type Name="EVENT">
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsirId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CaseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseSign" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PublishedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="LoadedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SavedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LegalCaseIniatedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ResolvedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Resolver" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="EventTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EventTypDescription" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderOfSection" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUser" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CanceledAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RiskCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EventStateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VerifiedBy" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="VerifiedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifiedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRIPAD" Member="PRIPADs">
+    <Type Name="PRIPAD">
+      <Column Name="pripadid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="spis_znacka" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pripad_start" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pripad_konec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="stavid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ulozeno" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zmeneno_isir" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="zruseno" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="STAVPRIPADU_PRIPAD" Member="STAVPRIPADU" ThisKey="stavid" OtherKey="stavid" Type="STAVPRIPADU" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STAVPRIPADU" Member="STAVPRIPADUs">
+    <Type Name="STAVPRIPADU">
+      <Column Name="stavid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="stav_nazev" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="stav_popis" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="popisnawebu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="STAVPRIPADU_PRIPAD" Member="PRIPADs" ThisKey="stavid" OtherKey="stavid" Type="PRIPAD" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.25" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="bd154a1a-a5db-40b3-ae49-883d56814387" absoluteBounds="0.75, 4.75, 2, 3.7257104492187487">
+      <DataClassMoniker Name="/DataClasses1DataContext/DLUZNIK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14464f41-55a0-4440-ad3e-69dd571837e8" absoluteBounds="0.765, 5.21, 1.9700000000000002, 3.16571044921875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e937d8d8-99c4-4feb-93d3-6ea88e8cb68c" absoluteBounds="0.75, 1.25, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/DataClasses1DataContext/STAVPRIPADU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a1f9a08-0b21-4036-884a-d49970092be4" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e9b24d9-d255-4219-b818-9d436f018255" absoluteBounds="3.75, 4.75, 2, 4.2187524414062487">
+      <DataClassMoniker Name="/DataClasses1DataContext/EVENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a044fd0f-c976-45ec-829f-0b2a239ed80c" absoluteBounds="3.765, 5.21, 1.9700000000000002, 3.65875244140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f506ff0-9647-40c3-a980-9bbc8296a405" absoluteBounds="6.75, 0.75, 2, 2.5752791341145826">
+      <DataClassMoniker Name="/DataClasses1DataContext/KBI_ID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5973ad14-d921-4ca1-b9fa-6939f362d4d4" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eaf4256a-d9dd-40a9-9228-5d6b8db71f19" absoluteBounds="3.5, 0.875, 2, 2.0822371419270826">
+      <DataClassMoniker Name="/DataClasses1DataContext/PRIPAD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f33fb34c-16c5-4e2c-93ec-96004b1152a7" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.96242390950521); (3.5 : 1.96242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/STAVPRIPADU/STAVPRIPADU_PRIPAD" />
+      <nodes>
+        <classShapeMoniker Id="e937d8d8-99c4-4feb-93d3-6ea88e8cb68c" />
+        <classShapeMoniker Id="eaf4256a-d9dd-40a9-9228-5d6b8db71f19" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
